@@ -1,12 +1,18 @@
-from string import whitespace
-
-print("Hello!! Welcome to my quiz game!")
-
 Score = 0
 successful_answer = "Your Answer has been Recorded!"
 unSuccessful_answer = "You Answer hasn't been Recorded Please Check your Answer Again!"
 
 question_1_answers = ["1- North America", "2- EU", "3- Middle East", "4- Africa"]
+
+print("Hello!! Welcome to my quiz game!")
+
+isPlaying = input("Do you wanna play? : ")
+
+if isPlaying.lower() != "yes":
+    print("aww I'm sorry to hear that :( maybe some other time!")
+    quit()
+else:
+    print("okay Lets start the Quiz!!")
 
 while True:
     question_1 = input("Which region is iran locted in?\n" + ", ".join(question_1_answers) + "\nAnswer = ")
