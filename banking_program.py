@@ -11,7 +11,16 @@ def deposit():
         return amount
 
 def withdraw():
-    pass
+    amount = float(input("Please Enter the amount that you would like to withdraw: "))
+
+    if amount > balance:
+        print("You dont have enough Balance to withdraw! Please make a deposit first.")
+        return 0
+    elif amount <= 0:
+        print("Amount must be greater than zero!")
+        return 0
+    else:
+        return amount
 
 balance = 0
 is_running = True
@@ -30,7 +39,7 @@ while is_running:
     elif choice == "2":
         balance += deposit()
     elif choice == "3":
-        withdraw()
+        balance -= withdraw()
     elif choice == "4":
         is_running = False
         print("Thank you! Have nice day!")
