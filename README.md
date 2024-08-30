@@ -34,4 +34,4 @@ Feel free to explore the code, review the notes, or use the examples to practice
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://mit-license.org) file for details.
