@@ -25,4 +25,15 @@ def set_difficulty ():
         else:
             print("Invalid Choice. Please Enter 1, 2, 3.")
 
+def start_game():
+    print("Welcome to the Number Guessing Game!")
+    print("I'm thinking of a number between 1 and 100.")
 
+    #select difficulty level
+    chances = set_difficulty()
+
+    # Generate a random number between 1 and 100
+    secret_number = random.randint(1, 100)
+    attempts = 0
+
+    print("\nLet's start the game!")
