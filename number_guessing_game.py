@@ -37,3 +37,27 @@ def start_game():
     attempts = 0
 
     print("\nLet's start the game!")
+
+    while chances > 0:
+        guess = input("\nEnter you guess: ")
+
+        if not guess.isdigit():
+            print("Invalid input. Please enter a valid number between 1 and 100.")
+            continue
+
+        guess = int(guess)
+        attempts += 1
+
+        if guess == secret_number:
+            print(f"\nCongratulations! The secret number was {secret_number}!\nYou guessed the correct number in {attempts} attempts.")
+            break
+        elif guess < secret_number:
+            print(f"Incorrect! The number is greater than {guess}.")
+        else:
+            print(f"Incorrect! The number is less than {guess}.")
+
+        chances -= 1
+        print(f"You have {chances} chances left." if chances > 0 else f"\nSorry, you've run out of chances! The correct number was {secret_number}.")
+
+if __name__ == "__main__":
+    start_game()
