@@ -1,13 +1,25 @@
 print("Welcome to my calculator!\n")
 
+# addition function
 def addition():
-    pass
+    num1 = float(input("Please Enter the first Number: "))
+    num2 = float(input("Please Enter the second Number: "))
+    print(num1 + num2)
 
+# subtraction function
 def subtraction():
-    pass
+    num1 = float(input("Please Enter the first Number: "))
+    num2 = float(input("Please Enter the second Number: "))
+    print(num1 - num2)
 
-def subtraction():
-    pass
+# multiplication function
+def multiplication():
+    num1 = float(input("Please Enter the first Number: "))
+    num2 = float(input("Please Enter the second Number: "))
+    print(num1 * num2)
 
+# division function
 def division():
-    pass
+    num1 = float(input("Please Enter the first Number: "))
+    num2 = float(input("Please Enter the second Number: "))
+    print(num1 / num2)
