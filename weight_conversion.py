@@ -26,8 +26,8 @@ def pound_to_kilo():
         # If input is not a valid number, print an error message
         print("Error: Please enter a valid number for the weight in pounds.")
 
-#function to exit the game
-def exit_game():
+#function to exit the program
+def exit_program():
     print("Exiting the program. Goodbye!")
     exit()
 
@@ -45,7 +45,7 @@ def main():
             elif user_choice == 2:
                 pound_to_kilo()
             elif user_choice == 3:
-                exit_game()
+                exit_program()
             else:
                 print("Invalid Choice! Please Enter a Number from 1-2\n")
         except ValueError:

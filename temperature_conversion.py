@@ -17,3 +17,8 @@ def fahrenheit_to_celsius():
         print(f"{user_input} degrees fahrenheit is equal to {celsius} degrees celsius.\n")
     except ValueError:
         print("Invalid Input Please Enter a Number!\n")
+
+# function to exit the program
+def exit_program():
+    print("Exiting the program. Goodbye!")
+    exit()
