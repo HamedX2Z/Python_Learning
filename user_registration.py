@@ -38,7 +38,20 @@ def is_strong_password():
     return has_upper and has_lower and has_digit and has_special
 
 # Main part of the program: get username and password from the user
-username = input("Please Enter a username: ")
+while True:
+    username = input("Please Enter a username: ")
+
+    # Checks if the username is more than the valid length or has invalid character
+    if " " in username:
+        print("Your username cannot contain a space!.\n")
+    elif len(username) > 12 or len(username) < 4:
+        print("Your username must be less than 12 characters long and\n"
+              "more than 4 characters long.\n")
+    elif username == "":
+        print("Your username cannot be empty!\n")
+    else:
+        print("Username is saved successfully!\n")
+        break
 
 # Loop until a strong password is provided
 while True:
@@ -47,4 +60,4 @@ while True:
         print("Registration Successful!")
         break
     else:
-        print("Please try again with a strong password.")
+        print("Please try again with a strong password.\n")
