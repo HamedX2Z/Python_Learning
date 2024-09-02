@@ -1,5 +1,3 @@
-from struct import pack_into
-
 print("Welcome to my Weight Conversion Program!")
 
 # kilogram to pound function
