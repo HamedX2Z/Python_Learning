@@ -1,16 +1,27 @@
 def set_password():
     #function to set an password for account at the start
     while True:
-        try:
-            password = int(input("Please Enter a 4digit Password: "))
-            if len(password) < 4 or len(password) > 4:
-                print("The password must be 4 digits long!")
-            else:
-                print("password successfully set!")
-                return password
-                break
-        except ValueError:
-            print("please Enter a 4 digit passowrd")
+        password = input("Please Enter a 4 digit Password: ")
+        if len(password) == 4 and password.isdigit():
+            print("password successfully set!")
+            return password
+        else:
+            print("The password must be 4 digits long and contain only numbers!")
+
+def verify_password(password):
+    # Function to verify the user's password
+    attempts = 3
+    while attempts > 0:
+        entered_password = input("Please Enter your password: ")
+        if entered_password == password:
+            return True
+        else:
+            attempts -= 1
+            print(f"Incorrect password! You have {attempts} attempt(s) left.")
+
+    # If out of attempts, deny access
+    print("Too many incorrect attempts. Access denied.")
+    return False
 
 def show_balance(balance):
     print(f"Your Balance is ${balance:.2f}")
@@ -40,6 +51,9 @@ def main():
     balance = 0
     is_running = True
 
+    # Set the password at the start
+    password = set_password()
+
     while is_running:
         print("\nNexa Online Banking program")
         print("1.Show Balance")
@@ -49,6 +63,10 @@ def main():
 
         choice = input("Enter your choice (1-4) : ")
 
+        # Verify password before each action
+        if choice in ["1", "2", "3"] and not verify_password(password):
+            continue
+
         if choice == "1":
             show_balance(balance)
         elif choice == "2":
@@ -57,11 +75,9 @@ def main():
             balance -= withdraw(balance)
         elif choice == "4":
             is_running = False
-            print("Thank you! Have nice day!")
+            print("Thank you! Have a nice day!")
         else:
             print("Please Enter a Valid Number from (1-4)")
-
-    print("Thank you! Have a nice day!")
 
 if __name__ == "__main__":
     main()
