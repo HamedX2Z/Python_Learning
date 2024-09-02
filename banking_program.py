@@ -1,3 +1,17 @@
+def set_password():
+    #function to set an password for account at the start
+    while True:
+        try:
+            password = int(input("Please Enter a 4digit Password: "))
+            if len(password) < 4 or len(password) > 4:
+                print("The password must be 4 digits long!")
+            else:
+                print("password successfully set!")
+                return password
+                break
+        except ValueError:
+            print("please Enter a 4 digit passowrd")
+
 def show_balance(balance):
     print(f"Your Balance is ${balance:.2f}")
 
@@ -27,7 +41,7 @@ def main():
     is_running = True
 
     while is_running:
-        print("Nexa Online Banking program")
+        print("\nNexa Online Banking program")
         print("1.Show Balance")
         print("2.Deposit")
         print("3.Withdraw")
