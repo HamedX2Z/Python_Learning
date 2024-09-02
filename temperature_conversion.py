@@ -22,3 +22,23 @@ def fahrenheit_to_celsius():
 def exit_program():
     print("Exiting the program. Goodbye!")
     exit()
+
+# main function to
+def main():
+    while True:
+        print("Select the operation that you want to perform\n")
+        print("1. Celsius to Fahrenheit")
+        print("2. Fahrenheit to Celsius")
+        print("3. Exit\n")
+        try:
+            user_choice = int(input("Please Enter you're choice: "))
+            if user_choice == 1:
+                celsius_to_fahrenheit()
+            elif user_choice == 2:
+                fahrenheit_to_celsius()
+            elif user_choice == 3:
+                exit_program()
+        except ValueError:
+            print("Invalid input! Please enter a whole number from 1-3.\n")
+
+main()
