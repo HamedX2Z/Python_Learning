@@ -31,7 +31,3 @@ Feel free to explore the code, review the notes, or use the examples to practice
 
 - Thanks to the Python community for providing resources, tutorials, and support.
 - Inspired by various online courses, tutorials, and documentation that helped me kickstart my Python journey.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](https://mit-license.org) file for details.
