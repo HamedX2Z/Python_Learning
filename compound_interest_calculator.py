@@ -23,7 +23,7 @@ def rate():
     while True:
         # try block to check for possible invalid inputs
         try:
-            user_interest = int(input("Please Enter the Interest Rate: "))
+            user_interest = int(input("Please Enter the Interest Rate %: "))
             if user_interest <= 0:
                 print("Interest Rate cant be euqal or less than zero!\n")
             else:
@@ -53,3 +53,10 @@ def time():
 
 # get user's investment time
 user_investment_time = time()
+
+# function to calculate the compound interest rate
+def compound_interest():
+    total = user_investment_amount * pow((1 + (user_interest_rate / 100)), user_investment_time)
+    print(f"Balance after {user_investment_time} Years is {total}$\n")
+
+compound_interest()
