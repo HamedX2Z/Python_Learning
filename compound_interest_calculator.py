@@ -35,3 +35,21 @@ def rate():
 
 # Get the user's interest rate
 user_interest_rate = rate()
+
+# function to get the users investment time
+def time():
+    while True:
+        # try block to check for possible invalid inputs
+        try:
+            user_time = int(input("Please Enter the Time of Investment: "))
+            if user_time <= 0:
+                print("Time cant be euqal or less than zero!\n")
+            else:
+                print(f"Set! Investment Time is {user_time} Years\n")
+                # returning the user interest rate value so it can be used in other parts of the code
+                return user_time
+        except ValueError:
+            print("Invalid input! Please Enter a Number!\n")
+
+# get user's investment time
+user_investment_time = time()
