@@ -7,15 +7,36 @@ prices = []
 quantities = []
 total = 0
 
+
+def print_cart():
+    # Print the contents of the cart
+    print("\n-----YOUR CART-----")
+    if not foods:
+        print("Your cart is empty.")
+    else:
+        for i, (food, quantity) in enumerate(zip(foods, quantities)):
+            print(f"{i + 1}. {quantity} x {food}")
+
+
+def calculate_total():
+    # Calculate the total cost of the food items
+    total = sum(price * quantity for price, quantity in zip(prices, quantities))
+    print("\n-----YOUR TOTAL-----")
+    print(f"Your total is ${total:.2f}.")
+
+
 # Start an infinite loop to continuously prompt the user for input
 while True:
-    # Ask the user to enter a food item, or press 'Q' to quit
-    food = input("Enter a food to buy (press Q to quit): ")
-    # Check if the user wants to quit
-    if food.lower() == "q":
+    # Provide options to the user
+    print("\nOptions: [1] Add Item [2] Remove Item [Q] Quit")
+    choice = input("Choose an option: ").lower()
+
+    if choice == 'q':
         print("\nGoodbye for now!")
         break
-    else:
+    elif choice == '1':
+        # Add an item to the cart
+        food = input("Enter a food to buy: ")
         while True:
             try:
                 # Ask the user to enter the price of the food and convert it to a float
@@ -33,18 +54,35 @@ while True:
                 # Handle invalid input for the price or quantity
                 print("Invalid Input! Please enter valid numbers for price and quantity.")
             else:
-                # Break the loop if the inputs are valid
+                # Print updated cart and break the loop if the inputs are valid
+                print_cart()
                 break
+    elif choice == '2':
+        # Remove an item from the cart
+        if not foods:
+            print("Your cart is empty.")
+            continue
 
-# Print the contents of the cart
-print("\n-----YOUR CART-----")
-for food, quantity in zip(foods, quantities):
-    print(f"{quantity} x {food}")
+        print_cart()
+        while True:
+            try:
+                # Ask the user to enter the item number to remove
+                item_num = int(input("Enter the item number to remove: "))
+                if 1 <= item_num <= len(foods):
+                    # Remove the item from the lists
+                    index = item_num - 1
+                    food_removed = foods.pop(index)
+                    prices.pop(index)
+                    quantities.pop(index)
+                    print(f"{food_removed} has been removed from your cart.")
+                    print_cart()
+                    break
+                else:
+                    print("Invalid item number. Please enter a number from the list.")
+            except ValueError:
+                print("Invalid Input! Please enter a valid number.")
+    else:
+        print("Invalid choice, please try again.")
 
-# Calculate and print the total cost of the food items
-for price, quantity in zip(prices, quantities):
-    total += price * quantity
-
-# Print the total cost
-print("\n-----YOUR TOTAL-----")
-print(f"Your total is ${total:.2f}.")
+# Calculate and print the final total cost of the food items
+calculate_total()
