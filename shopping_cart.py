@@ -1,4 +1,4 @@
-print("Welcome to the Shopping Store!")
+print("Welcome to the Shopping Store Admin page!")
 
 foods = []
 prices = []
