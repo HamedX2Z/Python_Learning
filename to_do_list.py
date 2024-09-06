@@ -1,3 +1,4 @@
+# Function to display the menu options for the to-do list
 def display_menu():
     print("\nTo-Do List Menu")
     print("1. View Tasks")
@@ -5,6 +6,8 @@ def display_menu():
     print("3. Remove Task")
     print("4. Quit")
 
+
+# Function to view the list of tasks from the to-do list
 def view_tasks():
     try:
         with open("tasks.txt", "r") as file:
@@ -18,12 +21,16 @@ def view_tasks():
     except FileNotFoundError:
         print("\nYour To-Do List is empty!")
 
+
+# Function to add a new task to the to-do list
 def add_task():
     task = input("\nEnter a new task: ")
     with open("tasks.txt", "a") as file:
         file.write(task + "\n")
     print(f"Task '{task}' added to your to-do list!")
 
+
+# Function to remove a task from the to-do list based on its number
 def remove_task():
     view_tasks()
     try:
@@ -40,6 +47,8 @@ def remove_task():
     except (ValueError, IndexError):
         print("Invalid input. Please enter a valid task number.")
 
+
+# Main function to drive the to-do list application
 def main():
     while True:
         display_menu()
@@ -56,5 +65,7 @@ def main():
         else:
             print("Invalid choice! Please choose a number between 1 and 4.")
 
+
+# If the script is run directly, execute the main function
 if __name__ == "__main__":
     main()
