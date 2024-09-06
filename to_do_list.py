@@ -23,3 +23,19 @@ def add_task():
     with open("tasks.txt", "a") as file:
         file.write(task + "\n")
     print(f"Task '{task}' added to your to-do list!")
+
+def remove_task():
+    view_tasks()
+    try:
+        task_number = int(input("\nEnter the number of the task to remove: "))
+        with open("tasks.txt", "r") as file:
+            tasks = file.readlines()
+        if 1 <= task_number <= len(tasks):
+            removed_task = tasks.pop(task_number - 1)
+            with open("tasks.txt", "w") as file:
+                file.writelines(tasks)
+            print(f"Task '{removed_task.strip()}' removed from your to-do list!")
+        else:
+            print("Invalid task number!")
+    except (ValueError, IndexError):
+        print("Invalid input. Please enter a valid task number.")
