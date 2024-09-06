@@ -17,3 +17,9 @@ def view_tasks():
             print("\nYour To-Do List is empty!")
     except FileNotFoundError:
         print("\nYour To-Do List is empty!")
+
+def add_task():
+    task = input("\nEnter a new task: ")
+    with open("tasks.txt", "a") as file:
+        file.write(task + "\n")
+    print(f"Task '{task}' added to your to-do list!")
