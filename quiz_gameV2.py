@@ -27,32 +27,49 @@ score = 0
 # Initializing a variable to keep track of the current question number
 question_num = 0
 
+# Iterating through each question in the questions tuple
 for question in questions:
+    # Printing a separator for clarity
     print("----------------------")
+    # Printing the question
     print(question)
+    # Printing each option for the current question
     for option in options[question_num]:
         print(option)
 
+    # Collecting the user's guess and converting it to uppercase
     guess = input("Enter your guess (A, B, C or D): ").upper()
+    # Adding the guess to the list of guesses
     guesses.append(guess)
+    # Checking if the guess matches the correct answer and updating the score if it does
     if guess == answers[question_num]:
         score += 1
         print("Correct!")
     else:
         print("Incorrect!")
+        # Displaying the correct answer if the guess was wrong
         print("The correct answer was", answers[question_num])
+    # Moving on to the next question
     question_num += 1
 
+# Printing a separator for the result section
 print("----------------------")
 print("--------RESULT--------")
 print("----------------------")
 
+# Printing the correct answers
 print("Answers: ", end="")
 for answer in answers:
     print(answer, end=" ")
 print()
 
+# Printing the user's guesses
 print("Guesses: ", end="")
 for guess in guesses:
     print(guess, end=" ")
 print()
+
+# Calculating the user's score as a percentage
+score = int(score / len(questions) * 100)
+# Printing the user's final score
+print(f"Score: {score}%")
