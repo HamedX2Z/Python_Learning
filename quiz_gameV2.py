@@ -34,4 +34,11 @@ for question in questions:
         print(option)
 
     guess = input("Enter your guess (A, B, C or D): ").upper()
+    guesses.append(guess)
+    if guess == answers[question_num]:
+        score += 1
+        print("Correct!")
+    else:
+        print("Incorrect!")
+        print("The correct answer was", answers[question_num])
     question_num += 1
