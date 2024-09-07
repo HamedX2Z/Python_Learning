@@ -26,3 +26,12 @@ score = 0
 
 # Initializing a variable to keep track of the current question number
 question_num = 0
+
+for question in questions:
+    print("----------------------")
+    print(question)
+    for option in options[question_num]:
+        print(option)
+
+    guess = input("Enter your guess (A, B, C or D): ").upper()
+    question_num += 1
