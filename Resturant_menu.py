@@ -1,7 +1,7 @@
 menu = {"pizza": 3.00,
         "nachos":4.50,
         "popcorn":6.00,
-        "fires": 2.50,
+        "fries": 2.50,
         "chips": 1.00,
         "soda": 3.00}
 
@@ -24,3 +24,10 @@ while True:
         cart.append(food)
     elif menu.get(food) is None:
         print("Please select an item from the menu!")
+
+for food in cart:
+    total += menu.get(food)
+    print(food, end=" ")
+
+print()
+print(f"total is : ${total:.2f}")
