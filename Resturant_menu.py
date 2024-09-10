@@ -20,7 +20,7 @@ print("------------------------")
 while True:
     food = input("What food would you like to buy? (Q to quit): ").lower()
     if food == "q":
-        print("Goodbye for now!")
+        print("\nGoodbye for now!\n")
         break
     elif menu.get(food) is not None:
         cart.append(food)
@@ -28,9 +28,11 @@ while True:
         print("Please select an item from the menu!")
 
 #for loop to print the cart
+print("-----------------------")
+print("Here's your order list:")
 for food in cart:
     total += menu.get(food)
-    print(food, end=" ")
+    print(f"- {food.capitalize()}")
 
-print()
-print(f"total is : ${total:.2f}")
+print("-----------------------")
+print(f"Total is: ${total:.2f}")
