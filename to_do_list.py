@@ -6,6 +6,8 @@ def display_menu():
     print("3. Remove Task")
     print("4. Quit")
 
+# list to store the user daily taks
+tasks = []
 
 # Function to view the list of tasks from the to-do list
 def view_tasks():
